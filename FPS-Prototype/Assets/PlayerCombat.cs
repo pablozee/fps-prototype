@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
+    public float damageAmount = 40f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerCombat : MonoBehaviour
             foreach(Collider hitEnemy in hitEnemies)
             {
                 Debug.Log("Hit enemy");
+                hitEnemy.GetComponent<Enemy>().TakeDamage(damageAmount);
             }
         }
     }
